@@ -10,6 +10,10 @@ DEVICE_PATH := device/samsung/a15
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
+# Relax ELF prebuilts in PRODUCT_COPY_FILES rule
+# https://android.googlesource.com/platform/build/+/refs/heads/main/Changes.md#elf-prebuilts-in-build_broken_elf_prebuilt_product_copy_files
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
