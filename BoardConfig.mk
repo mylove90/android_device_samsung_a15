@@ -14,6 +14,21 @@ ALLOW_MISSING_DEPENDENCIES := true
 # https://android.googlesource.com/platform/build/+/refs/heads/main/Changes.md#elf-prebuilts-in-build_broken_elf_prebuilt_product_copy_files
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
+# A/B
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS += \
+    system \
+    system \
+    vendor \
+    product \
+    system_ext \
+    vendor_dlkm \
+    odm_dlkm \
+    boot \
+    vbmeta_vendor \
+    vbmeta_system \
+    vendor_boot
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -68,6 +83,7 @@ BOARD_KERNEL_SEPARATED_DTBO :=
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 83886080
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 83886080
+BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 83886080
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -86,6 +102,8 @@ BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2021-08-01
