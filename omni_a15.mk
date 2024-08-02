@@ -27,3 +27,10 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="a15nsxx-user 12 SP1A.210812.016 A155FXXS3BXF1 release-keys"
 
 BUILD_FINGERPRINT := samsung/a15nsxx/a15:12/SP1A.210812.016/A155FXXS3BXF1:user/release-keys
+
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+
+# Enable project quotas and casefolding for emulated storage without sdcardfs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
