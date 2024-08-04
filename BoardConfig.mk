@@ -1,6 +1,9 @@
 DEVICE_PATH := device/samsung/a15
 
 # For building with minimal manifest
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+SOONG_ALLOW_MISSING_DEPENDENCIES := true
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Architecture
@@ -66,7 +69,13 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_SUPER_PARTITION_SIZE := 11744051200
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system system vendor product odm vendor_dlkm system_ext
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := \
+    system \
+    vendor \
+    product \
+    odm \
+    vendor_dlkm \
+    system_ext
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 11739856896
 
 # Platform
@@ -126,7 +135,6 @@ TW_INCLUDE_PYTHON := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TWRP_EVENT_LOGGING := true
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 TARGET_USES_MKE2FS := true
 TW_NO_LEGACY_PROPS := true
 TW_HAS_DOWNLOAD_MODE := true
