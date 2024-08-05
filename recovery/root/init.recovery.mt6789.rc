@@ -1,4 +1,6 @@
+import /init.recovery.touch.rc
 import /mtk-plpath-utils.rc
+import /multidisabler-helper.rc
 
 on boot
     start health-hal-2-1
