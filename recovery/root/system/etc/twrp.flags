@@ -9,7 +9,7 @@
 # Physical partitions - Data
 /optics			ext4		/dev/block/by-name/optics							flags=backup=1;flashimg;display="Optics"
 /prism			ext4		/dev/block/by-name/prism							flags=backup=1;flashimg;display="Prism"
-/metadata		ext4		/dev/block/platform/bootdevice/by-name/md_udc		flags=display="Metadata";wipeingui;wipeduringfactoryreset
+/metadata		ext4		/dev/block/by-name/metadata		flags=display="Metadata";wipeingui;wipeduringfactoryreset
 /data			f2fs		/dev/block/by-name/userdata							flags=length=-16384;fileencryption=aes-256-xts:aes-256-cts:v1
 /cache			ext4		/dev/block/by-name/cache	                flags=display="Cache";wipeingui;wipeduringfactoryreset
 
@@ -36,7 +36,7 @@
 /persistent		emmc		/dev/block/by-name/persistent						flags=backup=1;display="Persistent"
 
 # CP Slot a.k.a baseband image
-/md1img			emmc		/dev/block/platform/bootdevice/by-name/md1img		flags=backup=1;display="Modem"
+/md1img			emmc		/dev/block/by-name/md1img		flags=backup=1;display="Modem"
 
 # Physical partitions - Backupable
 /boot			emmc		/dev/block/by-name/boot								flags=backup=1;display="Boot Image";flashimg=1
@@ -45,9 +45,9 @@
 /prism_image		emmc		/dev/block/by-name/prism							flags=backup=1;display="Prism Image";flashimg=1
 /up_param		emmc		/dev/block/by-name/up_param							flags=backup=1;display="Logo";flashimg=1
 
-/vbmeta			emmc      /dev/block/platform/bootdevice/by-name/vbmeta		 flags=backup=1;display="Vbmeta";flashimg=1
-/vbmeta_system		emmc      /dev/block/platform/bootdevice/by-name/vbmeta_system    flags=backup=1;display="Vbmeta System";flashimg=1
-/vbmeta_vendor		emmc      /dev/block/platform/bootdevice/by-name/vbmeta_vendor    flags=backup=1;display="Vbmeta Vendor";flashimg=1
+/vbmeta			emmc      /dev/block/by-name/vbmeta		 flags=backup=1;display="Vbmeta";flashimg=1
+/vbmeta_system		emmc      /dev/block/by-name/vbmeta_system    flags=backup=1;display="Vbmeta System";flashimg=1
+/vbmeta_vendor		emmc      /dev/block/by-name/vbmeta_vendor    flags=backup=1;display="Vbmeta Vendor";flashimg=1
 
 # External storage
 /external_sd		auto		/dev/block/mmcblk0p1	/dev/block/mmcblk0			flags=display="Micro SD Card";storage;wipeingui;removable
